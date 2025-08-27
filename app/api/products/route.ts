@@ -94,7 +94,7 @@ export async function POST(req: NextRequest) {
     const savedProduct = await product.save();
 
     // Find and update related products based on category and tags
-    await updateRelatedProducts(savedProduct._id, category, tags);
+    await updateRelatedProducts(String(savedProduct._id), category, tags);
 
     return NextResponse.json({ product: savedProduct }, { status: 201 });
   } catch (error: any) {
