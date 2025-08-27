@@ -1,6 +1,7 @@
 import { Upload, Image as ImageIcon, Search } from 'lucide-react';
+import React from 'react';
 
-type Props = {
+export type UploadFormProps = {
   image: string | null;
   setImage: (img: string | null) => void;
   setDominantColor: (color: string | null) => void;
@@ -12,9 +13,11 @@ type Props = {
   onAnalyze?: () => void;
   onSearch: () => void;
   onSave: () => void;
+  analyzing?: boolean;
 };
 
-export default function UploadForm({ image, setImage, setDominantColor, setFile, analyzed, inferredColor, inferredCategory, inferredName, onAnalyze, onSearch, onSave }: Props) {
+const UploadForm: React.FC<UploadFormProps> = (props) => {
+  const { image, setImage, setDominantColor, setFile, analyzed, inferredColor, inferredCategory, inferredName, onAnalyze, onSearch, onSave, analyzing } = props;
   const extractDominantColor = (src: string) => {
     try {
       const img = new Image();
@@ -118,11 +121,14 @@ export default function UploadForm({ image, setImage, setDominantColor, setFile,
       <div className="flex flex-wrap gap-2">
         {onAnalyze && (
           <button
-            className="mt-2 bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded shadow transition"
+            className={`mt-2 px-4 py-2 rounded-full shadow transition text-white flex items-center gap-2 ${analyzing ? 'bg-indigo-500 cursor-not-allowed' : 'bg-indigo-600 hover:bg-indigo-700'}`}
             onClick={onAnalyze}
-            disabled={!image}
+            disabled={!image || analyzing}
           >
-            Analyze Image
+            {analyzing && (
+              <span className="inline-block w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+            )}
+            {analyzing ? 'Analyzing...' : 'Analyze Image'}
           </button>
         )}
         <button
@@ -142,4 +148,6 @@ export default function UploadForm({ image, setImage, setDominantColor, setFile,
       </div>
     </div>
   );
-}
+};
+
+export default UploadForm;

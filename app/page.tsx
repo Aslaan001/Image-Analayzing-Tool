@@ -65,6 +65,9 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [saveMessage, setSaveMessage] = useState<string | null>(null);
+  const [analyzing, setAnalyzing] = useState(false);
+  const [searching, setSearching] = useState(false);
+  const [searched, setSearched] = useState(false);
 
   const inferredColor = useMemo(() => {
     // Prefer Azure color dominantColors
@@ -90,6 +93,7 @@ export default function Home() {
     if (!image) return;
     setError(null);
     setLoading(true);
+    setAnalyzing(true);
     try {
       const res = await fetch('/api/analyze', {
         method: 'POST',
@@ -103,6 +107,7 @@ export default function Home() {
     } catch (e: any) {
       setError(e.message || 'Analyze failed');
     } finally {
+      setAnalyzing(false);
       setLoading(false);
     }
   };
@@ -110,6 +115,8 @@ export default function Home() {
   const handleSearch = async () => {
     if (!image) return;
     setLoading(true);
+    setSearching(true);
+    setSearched(false);
     setError(null);
     setResults([]);
     setSaveMessage(null);
@@ -143,6 +150,8 @@ export default function Home() {
     } catch (e: any) {
       setError(e.message || 'Unknown error');
     } finally {
+      setSearched(true);
+      setSearching(false);
       setLoading(false);
     }
   };
@@ -207,6 +216,7 @@ export default function Home() {
           onAnalyze={handleAnalyze}
           onSearch={handleSearch}
           onSave={saveToDb}
+          analyzing={analyzing}
         />
         <div className="my-6">
           <Filter value={minScore} setValue={setMinScore} />
@@ -215,6 +225,9 @@ export default function Home() {
         {error && <ErrorMessage message={error} />}
         {saveMessage && (
           <div className="mt-2 text-green-700 bg-green-100 border border-green-200 px-3 py-2 rounded">{saveMessage}</div>
+        )}
+        {!loading && searched && filteredResults.length === 0 && (
+          <div className="mt-4 text-gray-700 bg-white border border-gray-200 px-4 py-3 rounded text-center">No similar products found.</div>
         )}
         <ResultsGrid products={filteredResults} />
       </main>
