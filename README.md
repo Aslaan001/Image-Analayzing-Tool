@@ -7,7 +7,7 @@ A web application that helps users find visually similar products based on uploa
 **Project Challenge**: Build a web application that helps users find visually similar products based on uploaded images.
 
 **Live Demo**: [🌐 View Live Application](https://image-analayzing-tool.onrender.com/)
-**GitHub Repository**: [📁 View Source Code](https://github.com/Aslaan001/Image-Analayzing-Tool-main)
+**GitHub Repository**: [📁 View Source Code](https://github.com/Aslaan001/Image-Analayzing-Tool)
 
 ## ✨ Required Features (Assignment Compliance)
 
