@@ -34,7 +34,7 @@ A web application that helps users find visually similar products based on uploa
 - **Mobile Responsive**: Optimized for all device sizes
 - **Intuitive Interface**: Clean, modern UI with Tailwind CSS
 
-## 📋 Assignment Requirements & Evaluation Criteria
+## 📋 Assignment Requirements 
 
 ### **Project Challenge**
 Build a web application that helps users find visually similar products based on uploaded images.
@@ -52,11 +52,6 @@ Build a web application that helps users find visually similar products based on
 - ✅ **Loading States**: Smooth loading animations and UX improvements
 - ✅ **Documentation**: Clear README explaining approach and implementation
 
-### **Evaluation Criteria**
-- **Problem-solving approach**: AI-powered image analysis with multi-factor matching
-- **Code quality**: TypeScript, modern React patterns, clean architecture
-- **Working functionality**: Fully functional image upload, analysis, and search
-- **Documentation**: Comprehensive setup and usage instructions
 
 ## 🏗️ Technical Architecture
 
@@ -314,30 +309,6 @@ npm start
 - Update documentation as needed
 - Ensure responsive design compliance
 
-## 📋 Assignment Deliverables
-
-### **Required Submissions ✅**
-1. ✅ **Working Application URL**: [Live Demo](https://image-analayzing-tool.onrender.com/) - Successfully deployed on Render
-2. ✅ **GitHub Repository**: Complete source code with comprehensive README
-3. ✅ **Approach Documentation**: Detailed implementation strategy and technical approach
-
-### **Project Timeline**
-- **Project Deadline**: September 1st, 2025
-- **Time Investment**: Maximum 8 hours (completed efficiently)
-- **Status**: Ready for submission and review
-
-### **Evaluation Ready**
-This project demonstrates:
-- **Problem-solving approach**: Innovative AI-powered image analysis
-- **Code quality**: Production-ready TypeScript/React implementation
-- **Working functionality**: Complete image upload, analysis, and search
-- **Documentation**: Comprehensive setup and usage instructions
-
-## 📄 License
-
-This project is proprietary software developed for company use. All rights reserved.
-
-## 🆘 Support
 
 For technical support or questions regarding this implementation, please contact the development team.
 
