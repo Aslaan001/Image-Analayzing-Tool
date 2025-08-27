@@ -40,7 +40,7 @@ export default function ProductCard({
           className="w-28 h-28 object-cover rounded mb-2 border"
           onError={(e) => {
             const target = e.target as HTMLImageElement;
-            target.src = '/placeholder-image.png';
+            target.src = '/placeholder.svg';
           }}
         />
         <div className="absolute top-1 right-1 bg-black bg-opacity-70 text-white text-xs px-1 py-0.5 rounded">

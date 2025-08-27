@@ -88,7 +88,7 @@ export default function RelatedProducts({ productId, limit = 6 }: RelatedProduct
                 className="w-full h-24 object-cover group-hover:scale-105 transition-transform duration-200"
                 onError={(e) => {
                   const target = e.target as HTMLImageElement;
-                  target.src = '/placeholder-image.png';
+                  target.src = '/placeholder.svg';
                 }}
               />
               {product.similarity && (

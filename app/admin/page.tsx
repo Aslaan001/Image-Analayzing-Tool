@@ -111,7 +111,7 @@ export default function AdminPage() {
                   className="w-full h-48 object-cover"
                   onError={(e) => {
                     const target = e.target as HTMLImageElement;
-                    target.src = '/placeholder-image.png';
+                    target.src = '/placeholder.svg';
                   }}
                 />
                 <button
