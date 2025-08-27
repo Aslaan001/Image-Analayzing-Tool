@@ -62,4 +62,20 @@ ProductSchema.pre('save', function(next) {
 ProductSchema.index({ category: 1, tags: 1 }); // Only one array field allowed in compound index
 ProductSchema.index({ name: 'text', description: 'text' });
 
-export default mongoose.models.Product || mongoose.model('Product', ProductSchema);
+interface IProduct extends mongoose.Document {
+  name: string;
+  category: string;
+  imageUrl: string;
+  description?: string;
+  tags?: string[];
+  colors?: string[];
+  brand?: string;
+  relatedProducts?: mongoose.Types.ObjectId[];
+  similarityScore?: number;
+  createdAt?: Date;
+  updatedAt?: Date;
+}
+
+const Product = (mongoose.models.Product as mongoose.Model<IProduct>) || mongoose.model<IProduct>('Product', ProductSchema);
+
+export default Product;
